@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تلوين الـســديري</title>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+  /* تنسيقات خاصة للجوال */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .btn-container {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .btn-container button {
+    flex: 1 1 100%;
+  }
+}
+
+/* شاشات أصغر من 480px (موبايل صغير) */
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  select, input[type="file"], input[type="color"] {
+    width: 100%;
+  }
+
+  .custom-upload {
+    width: 100%;
+    text-align: center;
+  }
+}
+ 
+/* شاشات الجوال الصغيرة جدًا */
+@media (max-width: 430px) {
+  body {
+    padding: 5px;
+  }
+
+
+  .btn-container button,
+  select,
+  input[type="file"],
+  input[type="color"] {
+    width: 100% !important;
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+}
+
+  body {
+    margin: 0;
+    font-family: 'El Messiri', sans-serif;
+    background: radial-gradient(circle at top left, #b8a58f, #3e3b38);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+  margin: 0;
+  overflow: hidden; /* يمنع التمرير */
+  }
+
+  .logo {
+    text-align: center;   /* يوسّط العنصر أفقي */
+    margin-top: 100px;     /* يخليه ينزل شوي عن أعلى الصفحة */
+
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: #ff9800;
+  }
+
+  .btn {
+    width: 90px; /* عرض الزر */
+    height: 50px; /* ارتفاع الزر نفس العرض ليكون مربع */
+    border: none;
+    border-radius: 15px; /* حواف ناعمة */
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.2s, background 0.3s;
+    font-size: 18px; /* حجم النص */
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+
+ 
+  button {
+    padding: 10px;
+    background: linear-gradient(45deg, #c47805, #9e7a40);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.2s, background 0.3s;
+    width: 180px;  
+  }
+
+
+/* تصميم الزر المخصص */
+.custom-upload {
+  background-color: hsla(36, 100%, 50%, 0);
+  font-family: 'El Messiri', sans-serif;
+
+  color: white;
+  padding: 8px 16px;
+  border-radius: 80px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+          :root {
+    --btn-color:  #9a7a40;
+    --btn-color-dark: #0f1010;
+  }
+
+  /* ترتيب الأزرار */
+  .btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* المسافة بين الأزرار */
+    max-width: 400px; /* عرض الحاوية */
+  }
+
+  /* أول زرين نص العرض */
+  .btn-container button {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  /* الزر الثالث بعرض كامل */
+  .btn-container button:nth-child(3) {
+    flex: 1 1 100%;
+  }
+
+  button {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-family: inherit;
+    width: 180px;
+  }
+
+  button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--btn-color);
+    border-radius: 10rem;
+    z-index: -2;
+  }
+
+  button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--btn-color-dark);
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+
+  button:hover {
+    color: #c47805;
+  }
+
+  button:hover::before {
+    width: 100%;
+  }
+        
+        /* تصليح ظهور الـcanvas في الهواتف */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;   /* امنع سكرول جانبي */
+    overflow-y: auto;     /* فعّل السكرول العمودي في الجوال */
+  }
+
+}
+
+</style>
+
+</head>
+<body>
+
+  <div class="logo">    
+    <a href="https://uaeliwan.com/" target="_self">
+        <img src="logo.png" alt="لـيــوان" style="width:170px; height:166px; filter: grayscale(100%) brightness(0%);">
+    </a>
+  </div>
+ 
+
+  
+  <title>ثلاثة مربعات مع صور</title>
+  <style>
+  
+
+  .container {
+  display: flex;
+  justify-content: center;   /* يوسّط أفقياً */
+  align-items: center;       /* يوسّط عمودياً */
+  gap: 50px;                 /* المسافة بين المربعات */
+  margin: auto;              /* يخليها تنزل بالنص بين الهيدر وأسفل الصفحة */
+  flex-wrap: wrap;           /* يخليها تنزل تحت بعض في الجوال */
+  margin-top: 100px;          /* ارفعهم فوق شوي */
+}
+
+
+    .box {
+      width: 250px;
+      height: 400px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: center; /* في النص أفقياً */
+      align-items: center;     /* في النص عمودياً */
+    }
+
+    .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* يضمن أن الصورة تملأ المربع */
+    }
+  </style>
+
+
+  <div class="container">
+    <div class="box"><img src="F3.png" alt="الــســـديــري أبورقــبـة"></div>
+    <div class="box"><img src="F2.png" alt="الــســـديــري صــوف"></div>
+    <div class="box"><img src="F1.png" alt="الــســـديــري الــصــيــنــي"></div>
+  </div>
+
+</body>
+</html>
