@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>تلوين الـســديري</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -298,7 +302,7 @@
     color: white;
     font-size: 20px;
     font-weight: bold;
-    transition: left 0.5s ease; /* حركة من اليسار */
+    transition: left 0.3s ease; /* حركة من اليسار */
   }
 
   /* لما نلمس أو نمر بالماوس */
@@ -330,6 +334,14 @@
     </a>
   </div>
 </div>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("✅ Service Worker تم تسجيله بنجاح"))
+      .catch((err) => console.log("❌ فشل تسجيل Service Worker:", err));
+  }
+</script>
 
 </body>
 </html>
