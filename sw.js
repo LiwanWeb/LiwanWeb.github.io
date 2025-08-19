@@ -10,7 +10,7 @@ self.addEventListener("install", (event) => {
         "./logo.png",
         "https://liwanweb.github.io/Fst.liwan/",
         "https://liwanweb.github.io/Snd.liwan/",
-        "https://liwanweb.github.io/Third.liwan/"
+        "https://liwanweb.github.io/4rd.liwan/"
       ]);
     })
   );
@@ -23,5 +23,6 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
 
 
